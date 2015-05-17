@@ -15,7 +15,6 @@ class Method {
 
         public:
 		void FFT();
-		//Complex* reconstruct(float DISTANCE) = 0;
                 void reconstruct_from_FFT(float dist);
 		void getResult();
 
@@ -61,6 +60,7 @@ class Method {
 		}
 };
 
+// initial FFT of spectral reconstruction  method
 void Method::FFT() {
 
 	for (int i=0; i<height; i++)
@@ -77,6 +77,7 @@ void Method::FFT() {
 void Multiply_By_Quadratic_Phase_Factor(Complex *src, Complex *dst, float constPhase, Complex fieldStep, int width, int height);
 void Multiply_By_Quadratic_Phase_Factor_shift(Complex *src, Complex *dst, float constPhase, Complex fieldStep, int width, int height);
 
+// rest of spectral reconstruction method
 void Method::reconstruct_from_FFT(float dist) {
 
         float constPhase = (-PI*WAVELENGTH*dist);
@@ -90,6 +91,7 @@ void Method::reconstruct_from_FFT(float dist) {
     	fftwf_execute(plan1);
 }
 
+// copy final result into output image array
 void Method::getResult() {
 
 	for (int i=0; i<height; i++)

@@ -98,6 +98,8 @@ void AutoFocus::createFilter(int filterSize) {
 	fftwf_execute(plan4);
 }
 
+/* Abosolute variance autofocus metric calculation
+ */
 void AutoFocus::varianceConv() {
 
 	for (int i=0; i<height; i++)
@@ -107,10 +109,9 @@ void AutoFocus::varianceConv() {
                         variance_in[i*width+j] = sqrt(x*x + y*y);
                 }
 
+	
+	// mean calculation
 
-
-        // mean calculation
-        //cufftExecR2C(planR2C, (cufftReal *)d_input, (cufftComplex *)d_input_F);
 	fftwf_execute(plan2);
 
         int Nx = width/2+1;
@@ -122,27 +123,16 @@ void AutoFocus::varianceConv() {
 			work1[i*Nx+j][1]*=(filter_F[i*Nx+j][1]*scale);
 	}
 
-        //grid.x = (in_img.width/2+1) / block.x +1;
-        //Multiply_2_Arrays_MultScal<<<grid,block,0,reconst_method.recStream>>>(d_input_F, d_filter_F, Nx, 1.0f/(float(SIGNAL_SIZE)));
-        //grid.x = in_img.width / block.x;
-
-        //cufftExecC2R(planC2R, (cufftComplex *)d_input_F, (cufftReal *)d_mean);
 	fftwf_execute(plan3);
 
-        // abs(I-m)
-        //subtractMeanABS<<<grid,block,0,reconst_method.recStream>>>(d_input, d_mean);
 	for (int i=0; i<height; i++)
                 for (int j=0; j<width; j++) 
 			variance_in[i*width+j]=fabs(variance_in[i*width+j]-mean[i*width+j]);
 
         // variance calculation
 
-        //cufftExecR2C(planR2C, (cufftReal *)d_input, (cufftComplex *)d_input_F);
         fftwf_execute(plan2);
 
-        //grid.x = (in_img.width/2+1) / block.x +1;
-
-        //Multiply_2_Arrays_MultScal<<<grid,block,0,reconst_method.recStream>>>(d_input_F, d_filter_F, Nx, 2000.f/(float(SIGNAL_SIZE)));
         scale=2000.f/float(width*height);
 
         for (int i=0; i<height; i++)
@@ -153,12 +143,7 @@ void AutoFocus::varianceConv() {
 
 
 	fftwf_execute(plan5);
-        //cufftExecC2R(planC2R, (cufftComplex *)d_input_F, (cufftReal *)d_var);
 
-        //grid.x = reconst_method.in_img.width / block.x;
-
-        // copy back
-        //DivideCopyTo_new_Array<<<grid, block,0,reconst_method.recStream>>>(d_var, d_mean, out_img->d_pixel);
 	for (int i=0; i<height; i++)
                 for (int j=0; j<width; j++)
 			variance[i*width+j]/=(mean[i*width+j]*mean[i*width+j]);
