@@ -5,6 +5,9 @@
 #include "AutoFocus.h"
 #include "Holography.h"
 
+int width;
+int height;
+
 jbyteArray as_byte_array(JNIEnv *env, unsigned char* buf, int len) {
 
     jbyteArray array = env->NewByteArray (len);
@@ -34,8 +37,24 @@ JNIEXPORT jbyteArray JNICALL Java_Image_readTiff
 	Image *image = new Image(); 
 	image->readTiff((char*)as_unsigned_char_array(env, file));
 
+	width=image->width;
+	height=image->height;
+
 	return as_byte_array(env, image->pixel, image->width*image->height);
 
+}
+
+JNIEXPORT jintArray JNICALL Java_Image_getSizes
+  (JNIEnv *env, jobject object) {
+
+	int *size = new int[2];
+        size[0] = width;
+        size[1] = height;
+
+	jintArray array = env->NewIntArray (2);
+    	env->SetIntArrayRegion (array, 0, 2, reinterpret_cast<jint*>(size));
+
+        return array;
 }
 
 JNIEXPORT jbyteArray JNICALL Java_Holography_reconstructAt
@@ -92,7 +111,9 @@ JNIEXPORT jlong JNICALL Java_Holography_initAutoFocus
 
         in->pixel = pix;
 
-        AutoFocus *method = new AutoFocus(*in,50);
+	int filterSize=10;
+
+        AutoFocus *method = new AutoFocus(*in, filterSize);
 
         method->WAVELENGTH = 532e-9;
 

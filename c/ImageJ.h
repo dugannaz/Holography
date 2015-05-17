@@ -15,6 +15,9 @@ extern "C" {
 JNIEXPORT jbyteArray JNICALL Java_Image_readTiff
   (JNIEnv *, jobject, jbyteArray);
 
+JNIEXPORT jintArray JNICALL Java_Image_getSizes
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

@@ -1,1 +1,1 @@
-g++ -O2 -o libholography.so -ltiff -lfftw3f -shared Holography.cpp -fPIC
+g++ -O2 -I/home/nazim/program/jdk1.8.0_05/include -I/home/nazim/program/jdk1.8.0_05/include/linux -I/home/nazim/program/tiff-4.0.3/libtiff -o libholography.so -ltiff -shared Holography.cpp -fPIC -lfftw3f
