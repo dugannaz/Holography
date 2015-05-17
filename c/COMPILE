@@ -1,0 +1,1 @@
+g++ -O2 -o libholography.so -ltiff -lfftw3f -shared Holography.cpp -fPIC
