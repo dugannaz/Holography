@@ -1,8 +1,9 @@
 Holographic Image Reconstruction Library
 
--Holographic image reconstruction at specific distance.
--Generation of z-map and infocus image using a stack of reconstructed
- images at various distances.
+Holographic image reconstruction at specific distance.
+
+Generation of z-map and infocus image using a stack of reconstructed
+images at various distances.
 
 Using JNI to access fftw and tiff libraries.
 
