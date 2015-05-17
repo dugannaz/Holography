@@ -26,7 +26,12 @@ public class Image {
 		pixel = new byte[size];
 	}
 	
+	public Image() {
+		
+	}
+	
 	native byte[] readTiff(byte[] file);
+	native int[] getSizes();
 	
 	public int[] zeroPad(int blockX, int blockY) {
 		
@@ -48,6 +53,9 @@ public class Image {
 	public void readImage(File file) {
 		
 		pixel = readTiff(file.getAbsolutePath().getBytes());
+		int[] sizes = getSizes();
+		width = sizes[0];
+		height = sizes[1];
 	}
 	
 	public void show() {

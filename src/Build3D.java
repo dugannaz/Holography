@@ -35,8 +35,14 @@ public class Build3D {
 		}
 		
 		zmap.show();
-		for (int i=0; i<size; i++)
+		for (int i=0; i<size; i++) {
+			try {
+			    Thread.sleep(500);            
+			} catch(InterruptedException ex) {
+			    Thread.currentThread().interrupt();
+			}
 			zmap.update(stack[i]);
+		}
 		
 	}
 	

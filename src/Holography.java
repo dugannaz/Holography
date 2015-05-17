@@ -29,7 +29,9 @@ public class Holography implements MouseWheelListener, KeyListener{
 		
 		frame.setLayout(null);
 		
-		hologram = new Image(2040,1088);
+		hologram = new Image();
+		//hologram = new Image(2040,1088);
+		//hologram = new Image(400,400);
 		
 	}
 	
@@ -105,7 +107,7 @@ public class Holography implements MouseWheelListener, KeyListener{
 		
 		holography.init();
 		
-		//holography.hologram.reconShow();
+		//holography.reconShow();
 		holography.build3D(50);
 
 	}
