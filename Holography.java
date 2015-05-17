@@ -19,7 +19,7 @@ public class Holography implements MouseWheelListener, KeyListener{
 	Image hologram;
 	JFrame frame;
 	long method;
-	int block=16;
+	int block=15;
 	int index;
 	
 	public Holography () {
