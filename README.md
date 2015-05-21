@@ -12,3 +12,11 @@ See .classpath file to see necessary external java libraries.
 
 First compile the native c codes and copy resulting libholography.so
 file into java classpath.
+
+example holographic image:
+
+![Alt text](https://github.com/dugannaz/Holography/blob/master/image.tif "Holographic image")
+
+Reconstructed image:
+
+![Alt text](https://github.com/dugannaz/Holography/blob/master/reconstructed.png "Reconstructed image")
