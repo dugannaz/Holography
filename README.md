@@ -5,7 +5,7 @@ Holographic image reconstruction at specific distance.
 Generation of z-map and infocus image using a stack of reconstructed
 images at various distances.
 
-Using JNI to access fftw and tiff libraries.
+Using JNI to access fftw and tiff libraries (only works with tiff images).
 
 See .classpath file to see necessary external java libraries.
 (ImageJ for plotting images and JZY3D for 3D plots)
@@ -13,9 +13,9 @@ See .classpath file to see necessary external java libraries.
 First compile the native c codes and copy resulting libholography.so
 file into java classpath.
 
-example holographic image:
+Sample holographic image:
 
-![Alt text](https://github.com/dugannaz/Holography/blob/master/image.tif "Holographic image")
+![Alt text](https://github.com/dugannaz/Holography/blob/master/image.png "Holographic image")
 
 Reconstructed image:
 
