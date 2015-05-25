@@ -1,4 +1,4 @@
-Holographic Image Reconstruction Library
+## Holographic Image Reconstruction Library
 
 Holographic image reconstruction at specific distance.
 
