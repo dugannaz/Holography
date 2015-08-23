@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="gluegen-rt-2.0-rc11-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="gluegen-rt-2.0-rc11.jar"/>
-	<classpathentry kind="lib" path="gluegen-rt-main-2.0-rc11.jar"/>
-	<classpathentry kind="lib" path="jogl-all-2.0-rc11-natives-windows-amd64.jar"/>
-	<classpathentry kind="lib" path="jogl-all-2.0-rc11.jar"/>
-	<classpathentry kind="lib" path="jogl-all-main-2.0-rc11.jar"/>
-	<classpathentry kind="lib" path="jzy3d-api-0.9.1.jar"/>
-	<classpathentry kind="lib" path="jzy3d-swt-0.9.1.jar"/>
-	<classpathentry kind="lib" path="log4j-1.2.17.jar"/>
-	<classpathentry kind="lib" path="org.jzy3d-0.8.4.jar"/>
-	<classpathentry kind="lib" path="org.jzy3d-0.9-demos.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="ij.jar"/>
-	<classpathentry kind="lib" path="MMCoreJ.jar"/>
+	<classpathentry kind="lib" path="lib/gluegen-rt-2.0-rc11.jar"/>
+	<classpathentry kind="lib" path="lib/gluegen-rt-main-2.0-rc11.jar"/>
+	<classpathentry kind="lib" path="lib/ij.jar"/>
+	<classpathentry kind="lib" path="lib/jogl-all-2.0-rc11.jar"/>
+	<classpathentry kind="lib" path="lib/jogl-all-main-2.0-rc11.jar"/>
+	<classpathentry kind="lib" path="lib/jzy3d-api-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/jzy3d-swt-0.9.1.jar"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="lib/MMCoreJ.jar"/>
+	<classpathentry kind="lib" path="lib/org.jzy3d-0.8.4.jar"/>
+	<classpathentry kind="lib" path="lib/org.jzy3d-0.9-demos.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

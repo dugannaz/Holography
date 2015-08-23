@@ -10,8 +10,10 @@ Using JNI to access fftw (or CuFFT) and tiff libraries (only works with tiff ima
 See .classpath file to see necessary external java libraries.
 (ImageJ for plotting images and JZY3D for 3D plots)
 
-First compile the native c codes (or cuda codes for GPU acceleration) and copy resulting libholography.so
-file into java classpath.
+First compile the native c codes (or cuda codes for GPU acceleration) and copy resulting libholography.so file into java classpath.
+(Provided libholography.so is c version for Linux amd64 platform.)
+
+If using eclipse define environment variable LD_PRELOAD=/path/to/libtiff.so:/path/to/libfftw3f.so.3
 
 Sample holographic image:
 
